@@ -3,8 +3,8 @@
     
     <v-content>
     
-    <ul class="navbar" v-for="nav in navs">
-      <nav></nav>
+    <ul class="navbar">
+      <li v-for="url in urls" :key="url.id"><a :href="url.url"> <img :src="url.src" :alt="url.alt"> {{ url.content }}</a></li>
     </ul>
 
     <v-parallax
@@ -28,8 +28,17 @@
     <div class="shuffle" v-on:click="shuffle">Shuffle</div>
   </div> -->
 
+  <div class="my-2">
+    <v-btn large color="primary">Primary</v-btn>
+  </div>
+
+  <div v-if="Math.random() > 0.5">
+  Maintenant vous me voyez
+</div>
+
+
   <div class="feed">
-      <Blog v-for="post in posts" :key="post.id" :title="post.title" :description="post.description" :image="post.image"></Blog>
+    <Blog v-for="post in posts" :key="post.id" :title="post.title" :description="post.description" :image="post.image"></Blog>
   </div>
 
 
@@ -47,38 +56,32 @@
       Blog,
     },
     
-
     data: function(){
       return {
         posts: [
           { title: "Citron", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", image: "https://image.freepik.com/free-vector/lemon-lime-liquid-splash-neon-sign_1262-21353.jpg" },
-          { title: "Banane", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", image: "https://cdn.shopify.com/s/files/1/0023/8469/1252/products/Photo_2018-11-26_3_56_59_PM_2000x.jpg?v=1543288458" },
-          { title: "Ananas", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", image: "https://cdn.shopify.com/s/files/1/1340/5961/products/brite-lite-tribe-new-neon-pineapple-6914074280041_1200x.jpg?v=1565238118" },
+          { title: "Banane", description: "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.", image: "https://cdn.shopify.com/s/files/1/0023/8469/1252/products/Photo_2018-11-26_3_56_59_PM_2000x.jpg?v=1543288458" },
+          { title: "Ananas", description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.", image: "https://cdn.shopify.com/s/files/1/1340/5961/products/brite-lite-tribe-new-neon-pineapple-6914074280041_1200x.jpg?v=1565238118" },
           { title: "Pasteque", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", image: "https://images-na.ssl-images-amazon.com/images/I/71mcW03bxYL._SL1500_.jpg" },
-          { title: "Fraise", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", image: "https://cdn.shopify.com/s/files/1/1638/1487/products/enseigne-neon-sign-fraise-strawberry_696x.jpg?v=1571438890" },
+          { title: "Fraise", description: "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.", image: "https://cdn.shopify.com/s/files/1/1638/1487/products/enseigne-neon-sign-fraise-strawberry_696x.jpg?v=1571438890" },
           { title: "Raisin", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", image: "https://i.pinimg.com/originals/51/41/f4/5141f4f37de3607f99b99da54eb8794a.jpg" },
           { title: "Cerise", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", image: "https://media.istockphoto.com/vectors/cherry-neon-sign-vector-id1133669544?k=6&m=1133669544&s=170667a&w=0&h=5xoPIrNYk_t4eyrfTobIaKWNzSFYzhlJmVfEDtOVQQY=" },
         ],
+
+        urls: [
+            { url: "#", content: "Lorem"},
+            { url: "#", content: "Lorem" },
+            { url: "#", content: "", src: "https://cdn.freebiesupply.com/logos/large/2x/lorem-lorem-logo-png-transparent.png", alt: "logo"},
+            { url: "#", content: "Lorem" },
+            { url: "#", content: "Lorem" },
+          ]
       
       }
     },
 
     };
+    
 
-    Vue.component('nav', {
-      data: function () {
-        return {
-          url: [
-            { url: "Lorem" },
-            { url: "Lorem" },
-            { url: "https://cdn.freebiesupply.com/logos/large/2x/lorem-lorem-logo-png-transparent.png" },
-            { url: "Lorem" },
-            { url: "Lorem" },
-          ]
-        }
-      },
-      template: '<li><a href="#"> {{ url }}</a></li>'
-    })
 </script>
 
 
@@ -93,6 +96,7 @@
   position: absolute;
   z-index: 999;
   width: 100vw;
+  background-image: linear-gradient(to bottom, #000000, transparent);
 }
 
 .navbar img{

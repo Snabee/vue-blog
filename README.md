@@ -1,5 +1,12 @@
 # blog
 
+## Correction depuis dernier cours
+
+v-if dans la card : Si l'on clique sur "See more info", l'image change en check
+
+La list de la nav utilise un v-for
+
+
 ## Project setup
 ```
 npm install

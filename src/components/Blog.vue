@@ -16,6 +16,14 @@
 
         <v-card-text class="text--primary">
           <div>{{ description }}</div>
+          <div v-if="checked">
+            <img src="https://lh3.googleusercontent.com/proxy/xKQ1h7XmgKuffM0Vu7Qqdkjdm7w-IJKz70xUdmNAZxpZdLrEL19PpLpmc4Sx38J2loIf_41SPnFRQYSLXy0zzhuhnrWIUw0">
+          </div>
+          <div v-else>
+            <img src="https://pngimage.net/wp-content/uploads/2018/06/hover-icon-png-9.png">
+          </div>
+          
+          
         </v-card-text>
 
         <v-fade-transition>
@@ -24,7 +32,7 @@
             absolute
             color="#000000"
           >
-            <v-btn>See more info</v-btn>
+            <v-btn @click="check">See more info</v-btn>
           </v-overlay>
         </v-fade-transition>
       </v-card>
@@ -38,6 +46,10 @@
     margin-top: 50px;
     background-color: #F8F8FF !important;
     transition: transform 1s;
+}
+
+.text--primary img{
+  width: 50px;
 }
 
 
@@ -54,7 +66,14 @@ export default {
 
   data: () => ({
       overlay: false,
-    }),
+      checked: false,
+  }),
+
+  methods:{
+    check: function() {
+      this.checked = true;
+    }
+  },
 }
 
 </script>
