@@ -28,13 +28,13 @@
     <div class="shuffle" v-on:click="shuffle">Shuffle</div>
   </div> -->
 
-  <div class="my-2">
-    <v-btn large color="primary">Primary</v-btn>
+  <!-- juste un test -->
+
+  <div v-if="Math.random() > 0.5" style="color:white">
+    La
   </div>
 
-  <div v-if="Math.random() > 0.5">
-  Maintenant vous me voyez
-</div>
+  <div v-else style="color:white">Pas la</div>
 
 
   <div class="feed">
